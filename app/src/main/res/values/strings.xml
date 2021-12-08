@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">PBL</string>
+    <string name="app_name">合志バスさんぽ</string>
+    <string name="mapbutton">マップを表示</string>
+    <string name="facbutton">施設一覧</string>
+    <string name="scname">NIT Kumamoto Campus</string>
+    <string name="backbutton">戻る</string>
 </resources>
