@@ -4,4 +4,8 @@
     <string name="facbutton">施設一覧</string>
     <string name="scname">NIT Kumamoto Campus</string>
     <string name="backbutton">戻る</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="mapact">施設マップ</string>
+    <string name="listact">施設一覧</string>
+    <string name="mainact">ホーム</string>
 </resources>

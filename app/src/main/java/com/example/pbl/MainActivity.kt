@@ -13,7 +13,12 @@ class MainActivity : AppCompatActivity() {
 
     /** Called when the user taps the Map button */
     fun openMap(view: View) {
-        val intent = Intent(applicationContext, MapActivity::class.java)
+        val intent = Intent(applicationContext, MapsActivity::class.java)
+        startActivity(intent)
+    }
+
+    fun openList(view: View) {
+        val intent = Intent(applicationContext, Facilities::class.java)
         startActivity(intent)
     }
 }

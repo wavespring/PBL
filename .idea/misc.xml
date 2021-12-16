@@ -5,10 +5,13 @@
       <map>
         <entry key="..\:/Users/haruki/AndroidStudioProjects/PBL/app/src/main/res/layout/activity_main.xml" value="0.4" />
         <entry key="..\:/Users/haruki/AndroidStudioProjects/PBL/app/src/main/res/layout/activity_map.xml" value="0.4" />
+        <entry key="app/src/main/res/layout/activity_facilities.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.55" />
+        <entry key="app/src/main/res/layout/activity_maps.xml" value="0.45" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
