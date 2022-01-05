@@ -81,8 +81,6 @@ class Facilities : AppCompatActivity() {
                     Toast.makeText(applicationContext, tete, Toast.LENGTH_SHORT).show()
                 }
             }
-            // トーストで表示する
-            // Toast.makeText(applicationContext, item, Toast.LENGTH_LONG).show()
         }
     }
 }

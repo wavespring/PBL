@@ -1,23 +1,50 @@
 package com.example.pbl
 
-import androidx.appcompat.app.AppCompatActivity
+import android.Manifest
+import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.widget.Toast
-
-import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.MarkerOptions
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 import com.example.pbl.databinding.ActivityMapsBinding
-import com.google.android.gms.maps.*
-import com.google.android.gms.maps.model.CircleOptions
-import com.google.android.gms.maps.model.LatLngBounds
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.Marker
+import com.google.android.gms.maps.model.MarkerOptions
+
+// val REQUEST_CODE_COORDINATES = 200
+var nowLocate = LatLng(0.00, 0.00)
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
+    // var isAccessLocationEnabled = false
     private lateinit var mMap: GoogleMap
     private lateinit var binding: ActivityMapsBinding
 
+    companion object {
+        private const val PERMISSION_REQUEST_CODE = 1234
+    }
+
+    private lateinit var fusedLocationClient: FusedLocationProviderClient
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        requestPermission()
+
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
+        fusedLocationClient.lastLocation
+            .addOnSuccessListener {
+                nowLocate = LatLng(it.latitude, it.longitude)
+                // val tete = "${it.latitude} + ${it.longitude}"
+                // Toast.makeText(applicationContext, tete, Toast.LENGTH_SHORT).show()
+            }
 
         binding = ActivityMapsBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -27,6 +54,69 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
     }
+
+    /* private fun requestPermission(){
+        val permissionStatusOfLocation = ContextCompat.checkSelfPermission(this@MapsActivity, android.Manifest.permission.ACCESS_FINE_LOCATION)
+        if (permissionStatusOfLocation == PackageManager.PERMISSION_GRANTED) getCoordinates() else permissionRequest()
+    }
+
+    private fun permissionRequest() {
+        val isNeedDialogOfLocation: Boolean =
+            ActivityCompat.shouldShowRequestPermissionRationale(
+                this@MapsActivity,
+                android.Manifest.permission.ACCESS_FINE_LOCATION)
+
+        if (!isNeedDialogOfLocation) {
+            //requestPermission()メソッドを実行する
+            ActivityCompat.requestPermissions(
+                this@MapsActivity,
+                arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION),
+                REQUEST_CODE_COORDINATES)
+            return
+        }
+
+        AlertDialog.Builder(this@MapsActivity).apply {
+            setTitle("位置情報取得には許可が必要になります。")
+            setMessage("許可を得ないと位置情報を取得せずに終了することになります。ご注意下さい。")
+            setPositiveButton("許可する"){dialog, which ->
+                //requestPermission()メソッドの実行
+                ActivityCompat.requestPermissions(
+                    this@MapsActivity,
+                    arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION),
+                    REQUEST_CODE_COORDINATES)
+            }
+            setNegativeButton("許可しない"){dialog, which ->
+                Toast.makeText(this@MapsActivity, "許可が得られなかったので中止しました。", Toast.LENGTH_SHORT).show()
+                finish()
+            }
+        }.show()
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode != REQUEST_CODE_COORDINATES) return
+
+        if (grantResults[0] != PackageManager.PERMISSION_GRANTED) {
+            finish()
+            return
+        }
+        getCoordinates()
+    }
+
+
+    fun getCoordinates(){
+        val fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
+        fusedLocationClient.lastLocation.addOnSuccessListener {
+            Toast.makeText(this, "座標点を取得しました。", Toast.LENGTH_SHORT).show()
+            val latitude: String = it.latitude.toString()
+            val longitude: String = it.longitude.toString()
+        }
+
+    }*/
 
     /**
      * Manipulates the map once available.
@@ -41,16 +131,24 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         mMap = googleMap
 
         mMap.uiSettings.isZoomControlsEnabled = true
-        // Add a marker in Sydney and move the camera
-        val kosen = LatLng(32.876636, 130.748012)
-        mMap.addMarker(MarkerOptions().position(kosen).title("熊本高専"))
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(kosen, 13.0f))
+        if(nowLocate == LatLng(0.00, 0.00)){
+            nowLocate = LatLng(32.876636, 130.748012)
+            Toast.makeText(applicationContext, "位置情報が取得できていません", Toast.LENGTH_SHORT).show()
+        }
+        mMap.addMarker(
+            MarkerOptions()
+                .position(nowLocate).title("現在地")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
+        )
+        // val kosen = LatLng(32.876636, 130.748012)
+        //mMap.addMarker(MarkerOptions().position(kosen).title("熊本高専"))
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(nowLocate, 16.0f))
 
-        mMap.apply {
+        /*mMap.apply {
             setLatLngBoundsForCameraTarget(
                 LatLngBounds(LatLng(32.846397, 130.717670), LatLng(32.928111, 130.854129))
             )
-        }
+        }*/
 
         mMap.addMarker(
             MarkerOptions()
@@ -129,6 +227,55 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 .snippet("公園")
         )
 
+        mMap.setOnMarkerClickListener(object : GoogleMap.OnMarkerClickListener{
+            override fun onMarkerClick(p0: Marker): Boolean {
+                val markerPosition = p0.title
+                when (markerPosition){
+                    "現在地" -> {
+                        return false
+                    }
+                    "ユーパレス弁天" -> {
+                        val intent = Intent(applicationContext, benten::class.java)
+                        startActivity(intent)
+                    }
+                    "クラッシーノ・マルシェ" -> {
+                        val intent = Intent(applicationContext, marche::class.java)
+                        startActivity(intent)
+                    }
+                    "合志マンガミュージアム" -> {
+                        val intent = Intent(applicationContext, manga::class.java)
+                        startActivity(intent)
+                    }
+                    "合志市総合センター「ヴィーブル」" -> {
+                        val intent = Intent(applicationContext, vivre::class.java)
+                        startActivity(intent)
+                    }
+                    "志来菜彩" -> {
+                        val intent = Intent(applicationContext, sikisai::class.java)
+                        startActivity(intent)
+                    }
+                    "弁天山公園" -> {
+                        val intent = Intent(applicationContext, bentenyama::class.java)
+                        startActivity(intent)
+                    }
+                    "熊本県農業公園 カントリーパーク" -> {
+                        val intent = Intent(applicationContext, country::class.java)
+                        startActivity(intent)
+                    }
+                    "元気の森公園" -> {
+                        val intent = Intent(applicationContext, genki::class.java)
+                        startActivity(intent)
+                    }
+                    else -> {
+                        val tete = "詳細情報が存在しません。"
+                        Toast.makeText(applicationContext, tete, Toast.LENGTH_SHORT).show()
+                        return false
+                    }
+                }
+                return true
+            }
+        })
+
         /*mMap.run {
             val benten = addCircle(
                 CircleOptions().center(LatLng(32.89766790022332, 130.72482516043988)).clickable(true)
@@ -148,5 +295,26 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 Toast.makeText(this@MapsActivity, "$toastText is tapped!!", Toast.LENGTH_SHORT).show()
             }
         }*/
+    }
+
+    private fun requestPermission() {
+        val permissionAccessCoarseLocationApproved =
+            ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) ==
+                    PackageManager.PERMISSION_GRANTED &&
+                    ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) ==
+                    PackageManager.PERMISSION_GRANTED
+
+        if (permissionAccessCoarseLocationApproved) {
+            // 位置情報の権限OK
+        } else {
+            // 位置情報の権限が無いため、許可を求める
+            ActivityCompat.requestPermissions(this,
+                arrayOf(
+                    Manifest.permission.ACCESS_FINE_LOCATION,
+                    Manifest.permission.ACCESS_COARSE_LOCATION
+                ),
+                PERMISSION_REQUEST_CODE
+            )
+        }
     }
 }
