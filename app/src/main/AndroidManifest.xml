@@ -16,9 +16,78 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PBL">
         <activity
+            android:name=".bentenyama"
+            android:exported="false">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".Facilities" />
+        </activity>
+
+        <activity
+            android:name=".genki"
+            android:exported="false">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".Facilities" />
+        </activity>
+
+        <activity
+            android:name=".country"
+            android:exported="false">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".Facilities" />
+        </activity>
+
+        <activity
+            android:name=".sikisai"
+            android:exported="false">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".Facilities" />
+        </activity>
+
+        <activity
+            android:name=".vivre"
+            android:exported="false">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".Facilities" />
+        </activity>
+
+        <activity
+            android:name=".manga"
+            android:exported="false">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".Facilities" />
+        </activity>
+
+        <activity
+            android:name=".marche"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Facilities" />
+        </activity>
+
+        <activity
+            android:name=".benten"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Facilities" />
+        </activity>
+
+        <activity
             android:name=".Facilities"
+            android:exported="false"
             android:label="@string/app_name"
-            android:exported="false" />
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -34,7 +103,13 @@
         <activity
             android:name=".MapsActivity"
             android:exported="false"
-            android:label="@string/app_name" />
+            android:label="@string/app_name"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
