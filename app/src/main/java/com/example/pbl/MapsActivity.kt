@@ -19,7 +19,7 @@ import com.google.android.gms.maps.model.*
 // val REQUEST_CODE_COORDINATES = 200
 var nowLocate = LatLng(0.00, 0.00)
 
-class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
+class MapsActivity : AppCompatActivity(), GoogleMap.OnInfoWindowClickListener, OnMapReadyCallback {
 
     // var isAccessLocationEnabled = false
     private lateinit var mMap: GoogleMap
@@ -115,15 +115,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     }*/
 
-    /**
-     * Manipulates the map once available.
-     * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
-     * If Google Play services is not installed on the device, the user will be prompted to install
-     * it inside the SupportMapFragment. This method will only be triggered once the user has
-     * installed Google Play services and returned to the app.
-     */
+
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
 
@@ -152,147 +144,130 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             MarkerOptions()
                 .position(LatLng(32.89766790022332, 130.72482516043988))
                 .title("弁天山公園")
-                .snippet("公園")
+                //.snippet("公園")
         )
 
         mMap.addMarker(
             MarkerOptions()
                 .position(LatLng(32.89282222121129, 130.7326265882746))
                 .title("合志市総合健康センター ユーパレス弁天")
-                .snippet("合志市総合健康センター")
+                //.snippet("合志市総合健康センター")
+        )
+
+        mMap.addMarker(
+            MarkerOptions()
+                .position(LatLng(32.890706037312476, 130.74526442005148))
+                .title("西合志図書館")
+                //.snippet("図書館")
         )
 
         mMap.addMarker(
             MarkerOptions()
                 .position(LatLng(32.892047625585505, 130.7327558484365))
                 .title("クラッシーノ・マルシェ")
-                .snippet("スーパーマーケット")
+                //.snippet("スーパーマーケット")
         )
 
         mMap.addMarker(
             MarkerOptions()
                 .position(LatLng(32.891141269672715, 130.74518604674898))
                 .title("合志マンガミュージアム")
-                .snippet("博物館")
+                //.snippet("博物館")
         )
 
         mMap.addMarker(
             MarkerOptions()
                 .position(LatLng(32.88610626409156, 130.79130626416375))
                 .title("合志市総合センター「ヴィーブル」")
-                .snippet("福祉・文化・体育の総合拠点")
+                //.snippet("福祉・文化・体育の総合拠点")
         )
 
         mMap.addMarker(
             MarkerOptions()
                 .position(LatLng(32.880861022305965, 130.785767929906))
                 .title("合志物産館 志来菜彩")
-                .snippet("物産館")
+                //.snippet("物産館")
         )
 
         mMap.addMarker(
             MarkerOptions()
                 .position(LatLng(32.88919956391348, 130.75905627328592))
                 .title("熊本県農業公園 カントリーパーク")
-                .snippet("公園")
+                //.snippet("公園")
         )
 
         mMap.addMarker(
             MarkerOptions()
                 .position(LatLng(32.86616513577165, 130.76835693191995))
                 .title("元気の森公園")
-                .snippet("公園")
+                //.snippet("公園")
         )
 
         mMap.addMarker(
             MarkerOptions()
-                .position(LatLng(32.859328645435305, 130.73255204744146))
-                .title("妙泉寺公園")
-                .snippet("公園")
+                .position(LatLng(32.89916656814804, 130.79402843418774))
+                .title("竹迫城跡公園")
+                //.snippet("公園")
         )
 
         mMap.addMarker(
             MarkerOptions()
                 .position(LatLng(32.875268085137876, 130.78232257769895))
                 .title("飯高山公園")
-                .snippet("公園")
+                //.snippet("公園")
         )
 
-        mMap.addMarker(
-            MarkerOptions()
-                .position(LatLng(32.89971008458185, 130.79695263192926))
-                .title("蛇ノ尾公園")
-                .snippet("公園")
-        )
+        mMap.setOnInfoWindowClickListener(this)
+    }
 
-        /* mMap.setOnMarkerClickListener(object : GoogleMap.OnMarkerClickListener{
-            override fun onMarkerClick(p0: Marker): Boolean {
-                val markerPosition = p0.title
-                when (markerPosition){
-                    "現在地" -> {
-                        return false
-                    }
-                    "合志市総合健康センター ユーパレス弁天" -> {
-                        val intent = Intent(applicationContext, benten::class.java)
-                        startActivity(intent)
-                    }
-                    "クラッシーノ・マルシェ" -> {
-                        val intent = Intent(applicationContext, marche::class.java)
-                        startActivity(intent)
-                    }
-                    "合志マンガミュージアム" -> {
-                        val intent = Intent(applicationContext, manga::class.java)
-                        startActivity(intent)
-                    }
-                    "合志市総合センター「ヴィーブル」" -> {
-                        val intent = Intent(applicationContext, vivre::class.java)
-                        startActivity(intent)
-                    }
-                    "合志物産館 志来菜彩" -> {
-                        val intent = Intent(applicationContext, sikisai::class.java)
-                        startActivity(intent)
-                    }
-                    "弁天山公園" -> {
-                        val intent = Intent(applicationContext, bentenyama::class.java)
-                        startActivity(intent)
-                    }
-                    "熊本県農業公園 カントリーパーク" -> {
-                        val intent = Intent(applicationContext, country::class.java)
-                        startActivity(intent)
-                    }
-                    "元気の森公園" -> {
-                        val intent = Intent(applicationContext, genki::class.java)
-                        startActivity(intent)
-                    }
-                    else -> {
-                        val tete = "詳細情報が存在しません。"
-                        Toast.makeText(applicationContext, tete, Toast.LENGTH_SHORT).show()
-                        return false
-                    }
-                }
-                return true
+    override fun onInfoWindowClick(p0: Marker) {
+        val place = p0.title
+        when (place){
+            "合志市総合健康センター ユーパレス弁天" -> {
+                val intent = Intent(applicationContext, benten::class.java)
+                startActivity(intent)
             }
-        })*/
-
-        /*mMap.run {
-            val benten = addCircle(
-                CircleOptions().center(LatLng(32.89766790022332, 130.72482516043988)).clickable(true)
-            )
-
-            val manga = addCircle(
-                CircleOptions().center(LatLng(32.89139037375045, 130.74513975222413)).clickable(true)
-            )
-
-            setOnCircleClickListener { circle ->
-                val toastText = when (circle.id) {
-                    benten.id -> "弁天山公園"
-                    manga.id -> "合志マンガミュージアム"
-                    else -> "Unknown"
-                }
-
-                Toast.makeText(this@MapsActivity, "$toastText is tapped!!", Toast.LENGTH_SHORT).show()
+            "西合志図書館" -> {
+                val intent = Intent(applicationContext, tosyo::class.java)
+                startActivity(intent)
             }
-        }*/
+            "クラッシーノ・マルシェ" -> {
+                val intent = Intent(applicationContext, marche::class.java)
+                startActivity(intent)
+            }
+            "合志マンガミュージアム" -> {
+                val intent = Intent(applicationContext, manga::class.java)
+                startActivity(intent)
+            }
+            "合志市総合センター「ヴィーブル」" -> {
+                val intent = Intent(applicationContext, vivre::class.java)
+                startActivity(intent)
+            }
+            "合志物産館 志来菜彩" -> {
+                val intent = Intent(applicationContext, sikisai::class.java)
+                startActivity(intent)
+            }
+            "弁天山公園" -> {
+                val intent = Intent(applicationContext, bentenyama::class.java)
+                startActivity(intent)
+            }
+            "熊本県農業公園 カントリーパーク" -> {
+                val intent = Intent(applicationContext, country::class.java)
+                startActivity(intent)
+            }
+            "元気の森公園" -> {
+                val intent = Intent(applicationContext, genki::class.java)
+                startActivity(intent)
+            }
+            "飯高山公園" -> {
+                val intent = Intent(applicationContext, iitaka::class.java)
+                startActivity(intent)
+            }
+            "竹迫城跡公園" -> {
+                val intent = Intent(applicationContext, take::class.java)
+                startActivity(intent)
+            }
+        }
     }
 
     private fun requestPermission() {
