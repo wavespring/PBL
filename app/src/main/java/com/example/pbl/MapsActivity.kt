@@ -14,10 +14,7 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.BitmapDescriptorFactory
-import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.Marker
-import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.gms.maps.model.*
 
 // val REQUEST_CODE_COORDINATES = 200
 var nowLocate = LatLng(0.00, 0.00)
@@ -133,22 +130,23 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         mMap.uiSettings.isZoomControlsEnabled = true
         if(nowLocate == LatLng(0.00, 0.00)){
             nowLocate = LatLng(32.876636, 130.748012)
-            Toast.makeText(applicationContext, "位置情報が取得できていません", Toast.LENGTH_SHORT).show()
+            Toast.makeText(applicationContext, "位置情報が取得できていません。一度戻るボタンを押して再度開いてください。", Toast.LENGTH_LONG).show()
         }
         mMap.addMarker(
             MarkerOptions()
                 .position(nowLocate).title("現在地")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
+                //.icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_locate))
         )
         // val kosen = LatLng(32.876636, 130.748012)
         //mMap.addMarker(MarkerOptions().position(kosen).title("熊本高専"))
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(nowLocate, 16.0f))
 
-        /*mMap.apply {
+        mMap.apply {
             setLatLngBoundsForCameraTarget(
-                LatLngBounds(LatLng(32.846397, 130.717670), LatLng(32.928111, 130.854129))
+                LatLngBounds(LatLng(32.82, 130.72), LatLng(32.92, 130.86))
             )
-        }*/
+        }
 
         mMap.addMarker(
             MarkerOptions()
@@ -160,7 +158,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         mMap.addMarker(
             MarkerOptions()
                 .position(LatLng(32.89282222121129, 130.7326265882746))
-                .title("ユーパレス弁天")
+                .title("合志市総合健康センター ユーパレス弁天")
                 .snippet("合志市総合健康センター")
         )
 
@@ -188,7 +186,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         mMap.addMarker(
             MarkerOptions()
                 .position(LatLng(32.880861022305965, 130.785767929906))
-                .title("志来菜彩")
+                .title("合志物産館 志来菜彩")
                 .snippet("物産館")
         )
 
@@ -227,14 +225,14 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 .snippet("公園")
         )
 
-        mMap.setOnMarkerClickListener(object : GoogleMap.OnMarkerClickListener{
+        /* mMap.setOnMarkerClickListener(object : GoogleMap.OnMarkerClickListener{
             override fun onMarkerClick(p0: Marker): Boolean {
                 val markerPosition = p0.title
                 when (markerPosition){
                     "現在地" -> {
                         return false
                     }
-                    "ユーパレス弁天" -> {
+                    "合志市総合健康センター ユーパレス弁天" -> {
                         val intent = Intent(applicationContext, benten::class.java)
                         startActivity(intent)
                     }
@@ -250,7 +248,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                         val intent = Intent(applicationContext, vivre::class.java)
                         startActivity(intent)
                     }
-                    "志来菜彩" -> {
+                    "合志物産館 志来菜彩" -> {
                         val intent = Intent(applicationContext, sikisai::class.java)
                         startActivity(intent)
                     }
@@ -274,7 +272,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 }
                 return true
             }
-        })
+        })*/
 
         /*mMap.run {
             val benten = addCircle(

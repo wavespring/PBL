@@ -5,9 +5,17 @@
       <map>
         <entry key="..\:/Users/haruki/AndroidStudioProjects/PBL/app/src/main/res/layout/activity_main.xml" value="0.4" />
         <entry key="..\:/Users/haruki/AndroidStudioProjects/PBL/app/src/main/res/layout/activity_map.xml" value="0.4" />
+        <entry key="app/src/main/res/drawable/ic_locate_foreground.xml" value="0.3765625" />
+        <entry key="app/src/main/res/layout/activity_benten.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/activity_bentenyama.xml" value="0.36041666666666666" />
+        <entry key="app/src/main/res/layout/activity_country.xml" value="0.36041666666666666" />
         <entry key="app/src/main/res/layout/activity_facilities.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/activity_genki.xml" value="0.36041666666666666" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.55" />
+        <entry key="app/src/main/res/layout/activity_manga.xml" value="0.36041666666666666" />
         <entry key="app/src/main/res/layout/activity_maps.xml" value="0.45" />
+        <entry key="app/src/main/res/layout/activity_marche.xml" value="0.36041666666666666" />
+        <entry key="app/src/main/res/layout/activity_sikisai.xml" value="0.36041666666666666" />
       </map>
     </option>
   </component>

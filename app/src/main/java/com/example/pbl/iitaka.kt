@@ -6,13 +6,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 
-class bentenyama : AppCompatActivity() {
+class iitaka : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_bentenyama)
+        setContentView(R.layout.activity_iitaka)
     }
     fun onClickURL(view: View){
-        val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.city.koshi.lg.jp/kiji00319368/index.html"))
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.city.koshi.lg.jp/kiji0033879/index.html"))
         startActivity(intent)
     }
 }

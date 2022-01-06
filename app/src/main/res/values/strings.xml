@@ -8,4 +8,64 @@
     <string name="mapact">施設マップ</string>
     <string name="listact">施設一覧</string>
     <string name="mainact">ホーム</string>
+    <string name="benten">合志市総合健康センター ユーパレス弁天</string>
+    <string name="bentenyama">弁天山公園</string>
+    <string name="country">熊本県農業公園 カントリーパーク</string>
+    <string name="genki">元気の森公園</string>
+    <string name="manga">合志マンガミュージアム</string>
+    <string name="marche">クラッシーノ・マルシェ</string>
+    <string name="sikisai">合志物産館 志来菜彩</string>
+    <string name="vivre">合志市総合センター「ヴィーブル」</string>
+    <string name="iitaka">飯高山公園</string>
+    <string name="take">竹迫城跡公園</string>
+    <string name="tosyo">西合志図書館</string>
+    <string name="discription">説明</string>
+    <string name="moyori">最寄りレターバス停</string>
+    <string name="link">関連リンク・画像出典元</string>
+
+    <string name="benten_di">温泉、プール、レストラン・宴会場、トレーニング室やグラウンドゴルフ場、マッサージルームなどがある大型複合施設。プールは温水で、25mプール・流水プール・幼児用プールを完備。県内最大級の広さを持つ温泉施設には、サウナやうたせ浴、歩行浴など13種類のお風呂を備えている。</string>
+    <string name="benten_mo">ユーパレス弁天</string>
+    <string name="benten_li">https://www.city.koshi.lg.jp/kiji0039962/index.html\n </string>
+
+    <string name="bentenyama_di">周遊道路やアスレチック遊具を備えた公園。山の頂上に設けられた展望台から、阿蘇の山々や熊本市内が一望できる。</string>
+    <string name="bentenyama_mo">ユーパレス弁天</string>
+    <string name="bentenyama_li">https://www.city.koshi.lg.jp/kiji00319368/index.html</string>
+
+    <string name="country_di">広大な敷地を4つのゾーンに分け、年間を通じて様々なイベントを開催しているレジャースポット。体験や学びを通じ、農業への理解を深めることができる。</string>
+    <string name="country_mo">御代志</string>
+    <string name="country_li">https://www.city.koshi.lg.jp/kiji00312813/index.html</string>
+
+    <string name="genki_di">面積3.3haの公園で一周 約600mの園路が整備され散歩やジョギングに利用される住民も多く健康づくりの場となっている。</string>
+    <string name="genki_mo">元気の森公園入口</string>
+    <string name="genki_li">https://www.city.koshi.lg.jp/kiji0033877/index.html</string>
+
+    <string name="iitaka_di">アンビー熊本より徒歩15分程度</string>
+    <string name="iitaka_mo">杉並台西（南ルート）・日本たばこ前</string>
+    <string name="iitaka_li">https://www.city.koshi.lg.jp/kiji0033879/index.html</string>
+
+    <string name="manga_di">漫画を「読もう!観よう!学ぼう!!!」を合言葉に、1960年代のものから現代までのマンガ15000冊以上を収蔵。マンガを読みホーダイの閲覧室、貴重なマンガ資料が閲覧できる展示室、昔の雑誌がズラリと並んだ資料室がある。古今東西の面白いマンガの発見、マンガを通じた郷土の歴史も学べる。</string>
+    <string name="manga_mo">御代志市民センター前</string>
+    <string name="manga_li">https://koshi-mm.com</string>
+
+    <string name="marche_di">合志市の新鮮な野菜や果物その他にも海産物やあか牛など熊本県全域からセレクトした「いいもの」を集めたアンテナショップ。郷土の特産品として市が推奨する「合志ブランド認証品」など、ギフトに最適な商品を取りそろえている。</string>
+    <string name="marche_mo">ユーパレス弁天</string>
+    <string name="marche_li1">https://kumamoto.guide/spots/detail/12005</string>
+    <string name="marche_li2">http://www.klassino-koshi.jp/benten/</string>
+
+    <string name="sikisai_di">竹迫の大型商業施設である「アンビー熊本」内にある物産館。合志市を中心とした近隣地域の野菜や果物、天草直送の活魚、地元食材を使用した弁当など、熊本の特産品が集う「食」のテーマパーク。</string>
+    <string name="sikisai_mo">アンビー熊本</string>
+    <string name="sikisai_li1">https://kumamoto.guide/spots/detail/12008</string>
+    <string name="sikisai_li2">https://shikisaisai.net</string>
+
+    <string name="take_di">鎌倉時代初頭、竹追氏 約320年、合志氏 約80年の居城として、栄えた。6月には上庄ホタル祭が開催される。近くに蛇ノ尾公園がある。</string>
+    <string name="take_mo">竹迫城跡入口</string>
+    <string name="take_li">https://www.city.koshi.lg.jp/kiji0033864/index.html</string>
+
+    <string name="tosyo_di">天文台のある図書館。約16万点の蔵書。</string>
+    <string name="tosyo_mo">御代志市民センター前</string>
+    <string name="tosyo_li">https://www.koshi-lib.jp/shisetsu/nishigoshi/</string>
+
+    <string name="vivre_di">総合体育館・文化会館・中央公民館・図書館・歴史資料館・福祉会館からなる複合文化体育施設。</string>
+    <string name="vivre_mo">合志市役所（ヴィーブル）</string>
+    <string name="vivre_li">https://www.city.koshi.lg.jp/kiji00312804/index.html</string>
 </resources>

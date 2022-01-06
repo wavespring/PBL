@@ -17,52 +17,77 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PBL">
+
         <activity
-            android:name=".bentenyama"
+            android:name=".tosyo"
             android:exported="false">
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"
             android:value=".Facilities" />
+        </activity>
+
+        <activity
+            android:name=".take"
+            android:exported="false">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".Facilities" />
+        </activity>
+
+        <activity
+            android:name=".iitaka"
+            android:exported="false">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".Facilities" />
+        </activity>
+
+        <activity
+            android:name=".bentenyama"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Facilities" />
         </activity>
 
         <activity
             android:name=".genki"
             android:exported="false">
-        <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value=".Facilities" />
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Facilities" />
         </activity>
 
         <activity
             android:name=".country"
             android:exported="false">
-        <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value=".Facilities" />
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Facilities" />
         </activity>
 
         <activity
             android:name=".sikisai"
             android:exported="false">
-        <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value=".Facilities" />
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Facilities" />
         </activity>
 
         <activity
             android:name=".vivre"
             android:exported="false">
-        <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value=".Facilities" />
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Facilities" />
         </activity>
 
         <activity
             android:name=".manga"
             android:exported="false">
-        <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value=".Facilities" />
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Facilities" />
         </activity>
 
         <activity
@@ -111,7 +136,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-
         <activity
             android:name=".MainActivity"
             android:exported="true">
